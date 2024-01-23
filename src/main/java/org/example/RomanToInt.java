@@ -19,7 +19,9 @@ public class RomanToInt {
      * @param s
      * @return
      */
-    public int romanToInt(String s) {
+    Map<String, Integer> map = new HashMap();
+
+    static {
         Map<String, Integer> map = new HashMap();
         map.put("I", 1);
         map.put("V", 5);
@@ -28,6 +30,10 @@ public class RomanToInt {
         map.put("C", 100);
         map.put("D", 500);
         map.put("M", 1000);
+    }
+
+    public int romanToInt(String s) {
+
 
         //拆分s的罗马数值为字符串数组
         String[] split = s.split("");
