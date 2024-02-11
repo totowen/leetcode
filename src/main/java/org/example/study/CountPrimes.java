@@ -10,7 +10,26 @@ public class CountPrimes {
 
     public static void main(String[] args) {
         CountPrimes countPrimes = new CountPrimes();
-        System.out.println(countPrimes.countPrimes(20));
+//        System.out.println(countPrimes.countPrimes(20));
+        System.out.println(countPrimes.eratosthenes(20));
+
+
+    }
+
+    public int eratosthenes(int n){
+        //初始化数组默认元素为false ,0和1除外，标记所有从2开始的系数，后面只要是2的倍数就会跳过ans的计算。只有素数会被ans统计。
+        boolean[] isPrime = new boolean[n+1];
+        int ans = 0;
+        for (int i = 2; i <= n; i++) {
+             if(!isPrime[i]){
+                 ans +=1;
+                 for (int j = i*i; j <= n; j+=i) {
+                     isPrime[j] = true;
+                 }
+             }
+        }
+        return ans;
+
     }
 
     public int countPrimes(int n) {
